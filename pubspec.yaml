@@ -1,5 +1,5 @@
-name: payu_custom_browser_flutter_example
-description: Demonstrates how to use the payu_custom_browser_flutter plugin.
+name: payubiz_cb_flutter_example
+description: Demonstrates how to use the payubiz_cb_flutter plugin.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -18,21 +18,19 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
-#  payu_custom_browser_flutter:
-#    # When depending on this package from a real application you should use:
-#    #   payu_custom_browser_flutter: ^x.y.z
-#    # See https://dart.dev/tools/pub/dependencies#version-constraints
-#    # The example app is bundled with the plugin so we use a path dependency on
-#    # the parent directory to use the current plugin's version.
-#    path: ../
+  #payubiz_cb_flutter:
+    # When depending on this package from a real application you should use:
+    #   payubiz_cb_flutter: ^x.y.z
+    # See https://dart.dev/tools/pub/dependencies#version-constraints
+    # The example app is bundled with the plugin so we use a path dependency on
+    # the parent directory to use the current plugin's version.
+   # path: ../
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   crypto: ^3.0.2
-  payu_custom_browser_flutter: ^0.0.1
+  payubiz_cb_flutter: ^0.0.1
 
 dev_dependencies:
   flutter_test:

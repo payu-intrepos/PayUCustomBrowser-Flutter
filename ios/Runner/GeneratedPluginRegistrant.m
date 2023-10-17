@@ -6,10 +6,10 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<payu_custom_browser_flutter/PayuCustomBrowserFlutterPlugin.h>)
-#import <payu_custom_browser_flutter/PayuCustomBrowserFlutterPlugin.h>
+#if __has_include(<payubiz_cb_flutter/PayuCustomBrowserFlutterPlugin.h>)
+#import <payubiz_cb_flutter/PayuCustomBrowserFlutterPlugin.h>
 #else
-@import payu_custom_browser_flutter;
+@import payubiz_cb_flutter;
 #endif
 
 @implementation GeneratedPluginRegistrant

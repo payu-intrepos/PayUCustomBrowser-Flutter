@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payu_custom_browser_flutter/payu_custom_browser_flutter.dart';
-import 'package:payu_custom_browser_flutter/PayUCBConstantKeys.dart';
+import 'package:payubiz_cb_flutter/payubiz_cb_flutter.dart';
+import 'package:payubiz_cb_flutter/PayUCBConstantKeys.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
 
@@ -14,22 +14,23 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> implements PayuCustomBrowserProtocol {
+class _MyAppState extends State<MyApp> implements PayUCustomBrowserProtocol {
 
-  late PayuCustomBrowserFlutter payUCustomBrowserFlutterPlugin;
+  late PayUCustomBrowserFlutter payUCustomBrowserFlutterPlugin;
   TextEditingController keyTextField = TextEditingController(text:"smsplus");
   TextEditingController saltTextField = TextEditingController(text:"1b1b0");
   TextEditingController userCredentialTextField = TextEditingController(text:"umang:arya");
-  TextEditingController accountNumberTextField = TextEditingController(text:"02941050067357");
-  TextEditingController accountIFSCTextField = TextEditingController(text:"HDFC0000294");
+  TextEditingController accountNumberTextField = TextEditingController(text:"123456789");
+  TextEditingController accountIFSCTextField = TextEditingController(text:"IFSC1234");
   TextEditingController bankCodeForNBTextField = TextEditingController(text:"ICIB");
   TextEditingController bankCodeForNBTPVTextField  = TextEditingController(text:"HDFNBTPV");
-  TextEditingController phoneTextField  = TextEditingController(text:"123456789");
+
+
 
   @override
   void initState() {
     super.initState();
-    payUCustomBrowserFlutterPlugin = PayuCustomBrowserFlutter(this);
+    payUCustomBrowserFlutterPlugin = PayUCustomBrowserFlutter(this);
     PayUTestCredentials.merchantKey = keyTextField.text;
     PayUTestCredentials.merchantSalt = saltTextField.text;
     PayUTestCredentials.userCredential = userCredentialTextField.text;
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> implements PayuCustomBrowserProtocol {
     PayUTestCredentials.accountIFSC = accountIFSCTextField.text;
     PayUTestCredentials.bankCodeForNB = bankCodeForNBTextField.text;
     PayUTestCredentials.bankCodeForNBTPV = bankCodeForNBTPVTextField.text;
-    PayUTestCredentials.phone = phoneTextField.text;
+
   }
 
   @override
@@ -236,31 +237,6 @@ class _MyAppState extends State<MyApp> implements PayuCustomBrowserProtocol {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: Container(
-                              margin: const EdgeInsets.only(
-                                  top: 10.0, bottom: 10.0),
-                              height: 50,
-                              child: TextField(
-                                controller: phoneTextField,
-                                decoration: const InputDecoration(
-                                  labelText: 'Phone number ',
-                                  contentPadding: EdgeInsets.all(8),
-                                  border: OutlineInputBorder(),
-                                ),
-                                style: Theme.of(context).textTheme.bodyText1,
-                                onChanged: (content) {
-                                  PayUTestCredentials.phone =
-                                      phoneTextField.text;
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           ElevatedButton(
                             child: const Text("Pay Via CC"),
@@ -419,7 +395,7 @@ class PayUTestCredentials {
   static const productInfo = "Info";
   static const firstName = "Abc";
   static const email = "test@gmail.com";
-  static String phone = "7503829146";
+  static const phone = "9999999999";
 
   static const _paymentUrl =
       "https://secure.payu.in/_payment"; //'https://test.payu.in/_payment';
@@ -432,10 +408,10 @@ class PayUTestCredentials {
   static String userCredential = "";
 
   static const walletId = 'AMON';
-  static const ccnum = '00000000000000';  //TODO: Remove it
-  static const cvv = '000';  //TODO: Remove it
-  static const ccexpyr = '2023';  //TODO: Remove it
-  static const ccexpmon = '11';  //TODO: Remove it
+  static const ccnum = '00000000000000'; 
+  static const cvv = '000';  
+  static const ccexpyr = '2023';  
+  static const ccexpmon = '11';  
   static const ccname = 'PayuUser';
 
   static var siParams = {
@@ -519,10 +495,8 @@ class PayUParams {
       PayUPaymentParamKey.key: PayUTestCredentials.merchantKey,
       PayUPaymentParamKey.transaction_id: txnId,
       PayUPaymentParamKey.amount: PayUTestCredentials.amount,
-      PayUPaymentParamKey.ios_surl: PayUTestCredentials.sUrl,
-      PayUPaymentParamKey.ios_furl: PayUTestCredentials.fUrl,
-      PayUPaymentParamKey.android_surl: PayUTestCredentials.sUrl,
-      PayUPaymentParamKey.android_furl: PayUTestCredentials.fUrl,
+      PayUPaymentParamKey.surl: PayUTestCredentials.sUrl,
+      PayUPaymentParamKey.furl: PayUTestCredentials.fUrl,
       PayUPaymentParamKey.product_info: PayUTestCredentials.productInfo,
       PayUPaymentParamKey.cb_config: {
         PayUPaymentParamKey.first_name: PayUTestCredentials.firstName,
